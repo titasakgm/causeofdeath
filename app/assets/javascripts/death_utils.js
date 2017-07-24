@@ -1,7 +1,7 @@
 var hi1,hix = [];
 
 var cod,codb,codt;
-var causeofdeath;
+var causeofdeath,cod_lists,cod_count;
 
 var hide_child,show_child,reset_child;
 var chd,chd0,chd1,chd2,chd3,ch0,ch1,ch2,ch3,ch00,ch01,chkeep;
@@ -1390,33 +1390,40 @@ $(document).ready(function(){
   }
 
   function show_cod(){
-    var lists = cod.split('|');
-    var text = '<form>';
-    for(i=0;i<lists.length;i++){
-      if (lists[i] === '') { continue; }
-      text += '<div class="radio">';
-      text += '  <label class="radio" for="cod">';
-      text += '    <input type="radio" name="codx" value="' + lists[i] + '">';
-      text +=        lists[i];
-      text += '    </input>';
-      text += '  </label>';
-      text += '</div>';
+    cod_lists = cod.split('|');
+    var text = cod_lists[0];
+    cod_count = cod_lists.filter(function(n) { return n != ''}).length;
+    if (cod_count > 1) {
+      text = '<form>';
+      for(i=0;i<cod_lists.length;i++){
+        if (cod_lists[i] === '') { continue; }
+        text += '<div class="radio">';
+        text += '  <label class="radio" for="cod">';
+        text += '    <input type="radio" name="codx" value="' + cod_lists[i] + '">';
+        text +=        cod_lists[i];
+        text += '    </input>';
+        text += '  </label>';
+        text += '</div>';
+      }
+      text += '</form>';
+      $('#process_text').html(text);
+    } else {
+      $('#cod_text').html(text);
     }
-    text += '</form>';
-    $('#process_text').html(text);
   }
 
   $("#processx").click(function(){
     // Read cod and display in cod_text with button
     show_cod();
 
-    $("#myModal").modal({
-      backdrop: 'static',
-      keyboard: false
-    });
+    // Fix to skip myModal if only 1 cause of death
+    if (cod_count > 1){
+      $("#myModal").modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+    }
     return false;
   });
 
 });
-
-
