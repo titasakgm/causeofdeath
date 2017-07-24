@@ -1,0 +1,53 @@
+#coding: utf-8
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dev1</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <%= javascript_include_tag "death_utils","guides" %>
+
+</head>
+<body>
+
+<div class="container">
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Cause of Death Helper</h3>
+    </div>
+     
+    <div class="panel-body">
+      <form class="form-horizontal" id="death_form">
+        <fieldset>
+          <%= yield %>
+        </fieldset>
+
+        <div id="submit" class="form-group none">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-8">
+            <input id="processx" type="submit" class="btn btn-primary"
+            value="  ประมวลผลสาเหตุการตาย" 
+            data-toggle="modal" data-target="#myModal" /> 
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CAUSE OF DEATH -->
+  <div class="cod">
+    <span class="col-md-4 right">
+    สรุปสาเหตุการตาย
+    </span>
+    <span id="cod_text" class="col-md-8 none">
+    </span>
+  </div>
+
+</div>
+
+</body>
+</html>
