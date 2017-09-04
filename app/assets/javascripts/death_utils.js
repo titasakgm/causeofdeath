@@ -18,7 +18,7 @@ var cardio,cardio0,cardio1,cardio2,cd1,cd2,cdy,cdn,cdb;
 var hide_diabetes,show_diabetes,reset_diabetes;
 var dbt,dbt0,dbt1,dbt2,dm1,dm2,dmy,dmn,dmb;
 
-var acx;
+var acx,acx2,ac1_count;
 var as0,as1;
 
 $(document).ready(function(){
@@ -291,6 +291,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#ca-" + cax;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");      
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -315,6 +316,10 @@ $(document).ready(function(){
     if (ca2.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = "มะเร็งอวัยวะอื่นๆ ";
+      causeofdeath += " " + ca2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
     return false;
@@ -388,6 +393,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#cd-" + cdx;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");      
     cod = causeofdeath + "|";
     if (id == "#cd-8") {
       cod = cd2.val();
@@ -415,9 +421,10 @@ $(document).ready(function(){
     if (cd2.val().length == 0){
       submit.hide();
     } else {
-      // add SPECIFY OTHER
-      causeofdeath = cd2.val();
-      cod = cd2.val();
+      causeofdeath = "โรคหัวใจอื่นๆ ";
+      causeofdeath += " " + cd2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
     return false;
@@ -492,6 +499,7 @@ $(document).ready(function(){
     if (id === "#dm-3") {
       causeofdeath = "โรคเบาหวานและ" + dm2.val();
     }
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");      
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -516,8 +524,8 @@ $(document).ready(function(){
     if (dm2.val().length == 0){
       submit.hide();
     } else {
-      debugger;
-      causeofdeath = "โรคเบาหวานและ" + dm2.val();
+      causeofdeath = "โรคเบาหวานและ " + dm2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
     }
@@ -586,6 +594,8 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#lu-" + lux;
     causeofdeath = $(id).text();
+    // remove string in ()
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");    
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -661,6 +671,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#li-" + lix;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");    
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -737,6 +748,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#ki-" + kix;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");    
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -814,6 +826,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#gi-" + gix;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -892,6 +905,7 @@ $(document).ready(function(){
     ////////////////////////////////
     var id = "#cg-" + cgx;
     causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
     cod = causeofdeath + "|";
     ////////////////////////////////
 
@@ -976,6 +990,7 @@ $(document).ready(function(){
     for(var i=0; i < hix.length; i++){
       var id = "#hi-" + hix[i];
       causeofdeath = $(id).text();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = cod + "และ" + causeofdeath + " ";
     }
     ////////////////////////////////
@@ -1058,6 +1073,14 @@ $(document).ready(function(){
 
   et1.unbind('change').bind('change', function(){
     var etx = et1.val();
+
+    ////////////////////////////////
+    var id = "#et-" + etx;
+    causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
+    ////////////////////////////////
+
     if (etx > '0'){
       if (etx == '5'){
         etc2.show();
@@ -1071,7 +1094,7 @@ $(document).ready(function(){
       etc2.hide();
       submit.hide();
     }
-    //codt.text('');
+    codt.text('');
     return false;
   });
 
@@ -1079,6 +1102,9 @@ $(document).ready(function(){
     if (et2.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = "โรคอื่นๆ " + et2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
     return false;
@@ -1131,9 +1157,14 @@ $(document).ready(function(){
   acd3 = $('#accident3');
 
   ac0 = $('#ac0');
-  ac1 = $('#ac1');
+  //ac1 = $('#ac1');
+  ac1 = $("input[type=radio][name='ac1']");
   ac2 = $('#ac2');
   ac3 = $('#ac3');
+
+  // remember radio ac1_text
+  ac1_text = '';
+  ac1_count = 0;
 
   acb.unbind('click').bind('click', function(){
     // toggle ass, toggle sui
@@ -1155,6 +1186,14 @@ $(document).ready(function(){
   // unnatural > accident  
   ac0.unbind('change').bind('change', function(){
     acx = ac0.val();
+
+    ////////////////////////////////
+    var id = "#ac-" + acx;
+    causeofdeath = $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
+    ////////////////////////////////
+
     if (acx == '0'){
       //reset_accident();
       acd3.hide();
@@ -1163,39 +1202,63 @@ $(document).ready(function(){
       submit.hide();
     } else if (acx > '0'){
       //reset_accident();
-      if (acx == '1'){
+      if (acx == '1'){      
         acd1.show();
         acd2.show();
+        ac2[0].value = '';
         ac3[0].value = '';
         acd3.hide();
         submit.hide();
       } else if (acx == '12'){
-        $("input[name='ac1']").attr('checked',false);        
+        // OLD $("input[name='ac1']").attr('checked',false);        
+        ac1.attr('checked', false);
         acd1.hide();
         ac2[0].value = '';
         acd2.hide();
         acd3.show();
         submit.hide();
       } else {
+        ac1.attr('checked', false);
         acd1.hide();
+        ac2.val('');
         acd2.hide();
+        ac3.val('');
         acd3.hide();
         submit.show();
       }
     } else {
       submit.hide();
     }
-    //codt.text('');
+    codt.text('');
     return false;
+  });
+
+  ac1.unbind('change').bind('change', function(){
+    debugger;
+    causeofdeath = $("#ac-1").text();
+    acx2 = $("input[name='ac1']:checked").val(); // "1" or "2"
+    var id = "#id_ac1" + acx2;
+    ac1_text = $(id).text().replace(/\s/g,'');
+    causeofdeath += " " + ac1_text;
+    if (ac2.val().length > 0) {
+      causeofdeath += " " + ac2.val();
+    }
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
   });
 
   ac2.unbind('input').bind('input', function(){
     if (ac2.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = $("#ac-1").text();
+      causeofdeath += " " + ac1_text;
+      causeofdeath += " " + ac2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
-    //codt.text('');
+    codt.text('');
     return false;
   });
 
@@ -1203,8 +1266,13 @@ $(document).ready(function(){
     if (ac3.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = "อุบัติเหตุอื่นๆ ";
+      causeofdeath += " " + ac3.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
+    codt.text('');
     return false;
   });
 
@@ -1235,6 +1303,14 @@ $(document).ready(function(){
 
   as0.unbind('change').bind('change', function(){
     asx = as0.val();
+
+    ////////////////////////////////
+    var id = "#as-" + asx;
+    causeofdeath = "ถูกทำร้ายตายด้วยการ" + $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
+    ////////////////////////////////
+
     as1[0].value = '';
     if (asx == '0'){
       ass1.hide();
@@ -1248,7 +1324,7 @@ $(document).ready(function(){
         submit.show();
       }
     }
-    //codt.text('');
+    codt.text('');
     return false;
   });
 
@@ -1256,6 +1332,10 @@ $(document).ready(function(){
     if (as1.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = "ถูกทำร้ายตายด้วยวิธี ";
+      causeofdeath += " " + as1.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
     return false;
@@ -1288,6 +1368,14 @@ $(document).ready(function(){
 
   sc0.unbind('change').bind('change', function(){
     scx = sc0.val();
+
+    ////////////////////////////////
+    var id = "#sc-" + scx;
+    causeofdeath = "ฆ่าตัวตายโดยวิธี" + $(id).text();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
+    ////////////////////////////////
+
     sc1[0].value = '';
     if (scx == '0'){
       sui1.hide();
@@ -1301,7 +1389,7 @@ $(document).ready(function(){
         submit.show();
       }
     }
-    //codt.text('');
+    codt.text('');
     return false;
   });
 
@@ -1309,6 +1397,10 @@ $(document).ready(function(){
     if (sc1.val().length == 0){
       submit.hide();
     } else {
+      causeofdeath = "ฆ่าตัวตายโดยวิธี ";
+      causeofdeath += " " + sc1.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
       submit.show();
     }
     return false;
@@ -1357,8 +1449,9 @@ $(document).ready(function(){
 
   function reset_accident(){
     ac3[0].value = '';
-    ac2[0].value = '';        
-    $("input[name='ac1']").attr('checked',false);
+    ac2[0].value = '';    
+    // OLD $("input[name='ac1']").attr('checked',false);
+    ac1.attr('checked',false)    
     ac0.val('0').change();
     ac0.selectpicker('refresh');
   }
