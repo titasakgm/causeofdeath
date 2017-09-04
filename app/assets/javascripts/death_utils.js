@@ -875,13 +875,16 @@ $(document).ready(function(){
   congen = $('#congen');
   congen0 = $('#congen0');
   congen1 = $('#congen1');
+  congen2 = $('#congen2');
   cg1 = $('#cg1');
+  cg2 = $('#cg2');
   cgy = $('#org8-yes');
   cgn = $('#org8-no');
   cgb = $('#org8');
 
   show_congen = function(){
     reset_congen();
+    congen2.hide();
     congen1.hide();
     congen0.show();
     congen.show();
@@ -889,12 +892,14 @@ $(document).ready(function(){
 
   hide_congen = function(){
     reset_congen();
+    congen2.hide();
     congen1.hide();
     congen0.show();
     congen.hide();  
   }
 
   reset_congen = function(){
+    cg2[0].value = '';
     cg1.val('0').change();
     cg1.selectpicker('refresh');
   }
@@ -907,14 +912,39 @@ $(document).ready(function(){
     causeofdeath = $(id).text();
     causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
     cod = causeofdeath + "|";
+    if (id == "#cg-4") {
+      cod = cg2.val();
+    }    
     ////////////////////////////////
 
     if (cgx > '0'){
+      if (cgx == '4'){
+        congen2.show();
+        submit.hide()
+      } else {
+        congen2.hide();
+        submit.show();
+      }
       submit.show();
     } else {
+      cg2[0].value = '';
+      congen2.hide();
       submit.hide();
     }
     codt.text('');
+    return false;
+  });
+
+  cg2.unbind('input').bind('input', function(){
+    if (cg2.val().length == 0){
+      submit.hide();
+    } else {
+      causeofdeath = "โรคพันธุกรรมอื่นๆ ";
+      causeofdeath += " " + cg2.val();
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+      cod = causeofdeath + "|";
+      submit.show();
+    }
     return false;
   });
 
@@ -1234,7 +1264,6 @@ $(document).ready(function(){
   });
 
   ac1.unbind('change').bind('change', function(){
-    debugger;
     causeofdeath = $("#ac-1").text();
     acx2 = $("input[name='ac1']:checked").val(); // "1" or "2"
     var id = "#id_ac1" + acx2;
