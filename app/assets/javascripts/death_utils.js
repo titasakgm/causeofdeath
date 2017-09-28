@@ -347,9 +347,9 @@ $(document).ready(function(){
     // reset button to inactive
     cab.removeClass('active');
 
-    // show org1,org2
+    // show org1,org2 => org1 org3
     $('.org1').show();
-    $('.org2').show();
+    $('.org3').show();
     return false;
   });
   // END natural org1:cancer
@@ -449,10 +449,13 @@ $(document).ready(function(){
     // reset button to inactive
     cdb.removeClass('active');
 
-    // show org1,org2,org3
+    // show org1,org2,org3 => org1 org3 org8 org9 org2 + org4
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
+    $('.org8').show();
+    $('.org9').show();
+    $('.org2').show();
+    $('.org4').show();
     return false;
   });
   // END natural org2:cardio
@@ -551,11 +554,10 @@ $(document).ready(function(){
     // reset button to inactive
     dmb.removeClass('active');
 
-    // show org1,org2,org3
+    // show org1,org2,org3 => org1 org3 org8
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
-    $('.org4').show();
+    $('.org8').show();
     return false;
   });
   // END natural org3:diabetes
@@ -627,12 +629,14 @@ $(document).ready(function(){
     // reset button to inactive
     lub.removeClass('active');
 
-    // show org1,org2,org3,org4,org5
+    // show org1,org2,org3,org4,org5 => org1 org3 org8 org9 org2 org4 + org6
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
+    $('.org8').show();
+    $('.org9').show();
+    $('.org2').show();
     $('.org4').show();
-    $('.org5').show();
+    $('.org6').show();
     return false;
   });
   // END natural org4:lung
@@ -703,13 +707,16 @@ $(document).ready(function(){
     // reset button to inactive
     lib.removeClass('active');
 
-    // show org1,org2,org3,org4,org5,org6
+    // show org1,org2,org3,org4,org5,org6 => org1 org3 org8 org9 org2 org4 org6 org5 + org7
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
+    $('.org8').show();
+    $('.org9').show();
+    $('.org2').show();
     $('.org4').show();
-    $('.org5').show();
     $('.org6').show();
+    $('.org5').show();
+    $('.org7').show();
     return false;
   });
   // END natural org5:liver
@@ -780,14 +787,15 @@ $(document).ready(function(){
     // reset button to inactive
     kib.removeClass('active');
 
-    // show org1,org2,org3,org4,org5,org6,org7
+    // show org1,org2,org3,org4,org5,org6,org7 => org1 org3 org8 org9 org2 org4 org6 + org5
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
+    $('.org8').show();
+    $('.org9').show();
+    $('.org2').show();
     $('.org4').show();
-    $('.org5').show();
     $('.org6').show();
-    $('.org7').show();
+    $('.org5').show();
     return false;
   });
   // END natural org6:kidney
@@ -859,14 +867,17 @@ $(document).ready(function(){
     gib.removeClass('active');
 
     // show org1,org2,org3,org4,org5,org6,org7,org8
+    // => org1 org3 org8 org9 org2 org4 org6 org5 org7 + org10
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
-    $('.org4').show();
-    $('.org5').show();
-    $('.org6').show();
-    $('.org7').show();
     $('.org8').show();
+    $('.org9').show();
+    $('.org2').show();
+    $('.org4').show();
+    $('.org6').show();
+    $('.org5').show();
+    $('.org7').show();
+    $('.org10').show();
     return false;
   });
   // END natural org7:gitract
@@ -968,13 +979,9 @@ $(document).ready(function(){
     cgb.removeClass('active');
 
     // show org1,org2,org3,org4,org5,org6,org7,org8,org9
+    // => org1 org3 org8 + org9
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
-    $('.org4').show();
-    $('.org5').show();
-    $('.org6').show();
-    $('.org7').show();
     $('.org8').show();
     $('.org9').show();
     return false;
@@ -1054,16 +1061,12 @@ $(document).ready(function(){
     hib.removeClass('active');
 
     // show org1,org2,org3,org4,org5,org6,org7,org8,org9,org10
+    // => org1 org3 org8 org9 + org2
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
-    $('.org4').show();
-    $('.org5').show();
-    $('.org6').show();
-    $('.org7').show();
     $('.org8').show();
     $('.org9').show();
-    $('.org10').show();
+    $('.org2').show();
     return false;
   });
   // END natural org9:hiv
@@ -1160,15 +1163,16 @@ $(document).ready(function(){
     etb.removeClass('active');
 
     // show org1,org2,org3,org4,org5,org6,org7,org8,org9,org10 END
+    // => org1 org3 org8 org9 org2 org4 org6 org5 org7 org10 END
     $('.org1').show();
-    $('.org2').show();
     $('.org3').show();
-    $('.org4').show();
-    $('.org5').show();
-    $('.org6').show();
-    $('.org7').show();
     $('.org8').show();
     $('.org9').show();
+    $('.org2').show();
+    $('.org4').show();
+    $('.org6').show();
+    $('.org5').show();
+    $('.org7').show();
     $('.org10').show();
     return false;
   });
