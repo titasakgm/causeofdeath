@@ -24,6 +24,7 @@ var as0,as1;
 $(document).ready(function(){
   // Final Cause of Death (cod)
   cod = "";
+  causeofdeath = "";
   codb = $('#cod_btn');
   codp = $('#process_text');
   codt = $('#cod_text');
@@ -187,6 +188,9 @@ $(document).ready(function(){
   mo1 = $('#mo1');
   mo2 = $('#mo2');
 
+  mo1_text = '';
+  mo2_text = '';
+
   show_mother = function(){
     reset_mother();
     mom2.hide();
@@ -246,6 +250,12 @@ $(document).ready(function(){
   });
 
   mo1.unbind('change').bind('change', function(){
+    mo1_text = $('#mo1 option:selected').data('subtext');
+    if (mo1_text){
+      causeofdeath = mo1_text;
+      causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,""); 
+      cod = causeofdeath + "|";
+    }
     var mo1x = $('#mo1 option:selected').val();
     if (mo1x == '6'){
       mom2.show();
@@ -254,11 +264,11 @@ $(document).ready(function(){
       mo2[0].value = '';
       mom2.hide();
       submit.hide();
-    } else {
+    } else {      
       mom2.hide();
       submit.show();
-      codt.html('');
     }
+    codt.html('');
     return false;
   });
 
@@ -267,6 +277,9 @@ $(document).ready(function(){
     if (mo2.val().length == 0){
       submit.hide();
     } else {
+      mo2_text = mo2.val();
+      causeofdeath  = mo2_text;
+      cod = causeofdeath + '|';
       submit.show();
       codt.html('');
     }
@@ -1585,9 +1598,6 @@ $(document).ready(function(){
 
   $("#processx").click(function(){
     // Read cod and display in cod_text with button
-
-    debugger;
-
     show_cod();
 
     // Fix to skip myModal if only 1 cause of death
