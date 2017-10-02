@@ -114,3 +114,7 @@ span#cod_text {
   font-size: 1.5em;
   display: inline-block;
 }
+
+.center {
+  text-align: center;
+}
