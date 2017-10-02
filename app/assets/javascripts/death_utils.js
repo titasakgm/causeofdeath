@@ -41,6 +41,9 @@ $(document).ready(function(){
   ch00 = $('#ch-0')[0];
   ch01 = $('#ch-1')[0];
 
+  ch1_text = "";
+  ch2_text = "";
+
   show_child = function(){
     reset_child();
     chd3.hide();
@@ -91,8 +94,16 @@ $(document).ready(function(){
     return false;
   });  
 
+  ch1.unbind('change').bind('change', function(){
+    ch1_text = "มารดาตั้งครรภ์ " + $('#ch1 option:selected').text();
+    causeofdeath = ch1_text;
+  });
+
   ch2.unbind('change').bind('change', function(){
     ch2x = ch2.val();
+    ch2_text = " สาเหตุหลัก " + $('#ch2 option:selected').data('subtext');
+    causeofdeath += ch2_text;
+    cod = causeofdeath + '|';
     if (ch2x == null){
       chd1.hide();
       chd2.hide();
@@ -110,8 +121,9 @@ $(document).ready(function(){
           chkeep = (chkeep == '12') ? '13' : '12';
           selectpicker_keep(ch2,chkeep);
         } else {
-          chkeep = ch2x[ch2x.length-1];
+          ch2_text = " สาเหตุหลัก " + $('#ch2 option:selected').data('subtext');
         }
+        chkeep = ch2x[ch2x.length-1];
         update_chd3_placeholder();
         submit.hide();
         //codt.text('');
@@ -132,10 +144,17 @@ $(document).ready(function(){
   ch3.unbind('input').bind('input', function(){
     if (ch3[0].value.length == 0){
       submit.hide();
-    } else {
-      submit.show();
+      return false;
     }
-    return false;
+  });
+
+  ch3.unbind('blur').bind('blur', function (e) {
+    // replace ch2_text:ระบุ ... with ''
+    ch2_text = ch2_text.replace(/ระบุ .../,"");
+    causeofdeath = ch1_text + ':' + ch2_text + ':' + ch3.val();
+    causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
+    cod = causeofdeath + "|";
+    submit.show();
   });
 
   function update_chd3_placeholder(){
@@ -154,7 +173,6 @@ $(document).ready(function(){
     sel.selectpicker('val',opt);
     sel.selectpicker('refresh');
   }
-
 
   // END general child
 
@@ -1540,6 +1558,9 @@ $(document).ready(function(){
 
   $("#processx").click(function(){
     // Read cod and display in cod_text with button
+
+    debugger;
+
     show_cod();
 
     // Fix to skip myModal if only 1 cause of death
