@@ -130,6 +130,7 @@ $(document).ready(function(){
       } else {
         chd3.hide();
         submit.show();
+        codt.html('');
         //codt.text('');
       }
     } else {
@@ -155,6 +156,7 @@ $(document).ready(function(){
     causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
     cod = causeofdeath + "|";
     submit.show();
+    codt.html('');
   });
 
   function update_chd3_placeholder(){
@@ -255,6 +257,7 @@ $(document).ready(function(){
     } else {
       mom2.hide();
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -265,6 +268,7 @@ $(document).ready(function(){
       submit.hide();
     } else {
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -320,6 +324,7 @@ $(document).ready(function(){
       } else {
         cancer2.hide();
         submit.show();
+        codt.html('');
       }
     } else {
       ca2[0].value = '';
@@ -339,6 +344,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -425,6 +431,7 @@ $(document).ready(function(){
       } else {
         cardio2.hide();
         submit.show();
+        codt.html('');
       }
     } else {
       cd2[0].value = '';
@@ -444,6 +451,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -531,6 +539,7 @@ $(document).ready(function(){
       } else {
         dbt2.hide();
         submit.show();
+        codt.html('');
       }
     } else {
       dm2[0].value = '';
@@ -549,6 +558,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -621,6 +631,7 @@ $(document).ready(function(){
 
     if (lux > '0'){
       submit.show();
+      codt.html('');
     } else {
       submit.hide();
     }
@@ -699,6 +710,7 @@ $(document).ready(function(){
 
     if (lix > '0'){
       submit.show();
+      codt.html('');
     } else {
       submit.hide();
     }
@@ -779,6 +791,7 @@ $(document).ready(function(){
 
     if (kix > '0'){
       submit.show();
+      codt.html('');
     } else {
       submit.hide();
     }
@@ -858,6 +871,7 @@ $(document).ready(function(){
 
     if (gix > '0'){
       submit.show();
+      codt.html('');
     } else {
       submit.hide();
     }
@@ -953,8 +967,10 @@ $(document).ready(function(){
       } else {
         congen2.hide();
         submit.show();
+        codt.html('');
       }
       submit.show();
+      codt.html('');
     } else {
       cg2[0].value = '';
       congen2.hide();
@@ -973,6 +989,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -1052,6 +1069,7 @@ $(document).ready(function(){
 
     if (hix.length > 0){
       submit.show();
+      codt.html('');
     } else {
       submit.hide();
     }
@@ -1139,6 +1157,7 @@ $(document).ready(function(){
       } else {
         etc2.hide();
         submit.show();
+        codt.html('');
       }
     } else {
       et2[0].value = '';
@@ -1157,6 +1176,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -1277,6 +1297,7 @@ $(document).ready(function(){
         ac3.val('');
         acd3.hide();
         submit.show();
+        codt.html('');
       }
     } else {
       submit.hide();
@@ -1308,6 +1329,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     codt.text('');
     return false;
@@ -1322,6 +1344,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     codt.text('');
     return false;
@@ -1373,6 +1396,7 @@ $(document).ready(function(){
       } else {
         ass1.hide();
         submit.show();
+        codt.html('');
       }
     }
     codt.text('');
@@ -1388,6 +1412,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });
@@ -1438,6 +1463,7 @@ $(document).ready(function(){
       } else {
         sui1.hide();
         submit.show();
+        codt.html('');
       }
     }
     codt.text('');
@@ -1453,6 +1479,7 @@ $(document).ready(function(){
       causeofdeath = causeofdeath.replace(/ *\([^)]*\) */g,"");
       cod = causeofdeath + "|";
       submit.show();
+      codt.html('');
     }
     return false;
   });  
