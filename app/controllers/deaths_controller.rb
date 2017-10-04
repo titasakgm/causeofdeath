@@ -28,8 +28,8 @@ class DeathsController < ApplicationController
 
     respond_to do |format|
       if @death.save
-        format.html { redirect_to root_path, notice: 'Death was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @death }
+        format.html { redirect_to root_url, notice: 'Death was successfully created.' }
+        format.json { render action: 'show', status: :created, location: root_url }
       else
         format.html { render action: 'new' }
         format.json { render json: @death.errors, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class DeathsController < ApplicationController
   def update
     respond_to do |format|
       if @death.update(death_params)
-        format.html { redirect_to root_path, notice: 'Death was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Death was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class DeathsController < ApplicationController
   def destroy
     @death.destroy
     respond_to do |format|
-      format.html { redirect_to deaths_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
