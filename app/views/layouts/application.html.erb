@@ -52,7 +52,7 @@
     <span class="col-md-12 center">
       <hr/>
 
-      <%= form_for Death.new, url: {controller: "deaths", action: "create"}, html: {id: "id_cod", class: "none"} do |f| %>
+      <%= form_for Death.new, url: {controller: "deaths", action: "create"}, html: {id: "id_cod", class: "none", method: "POST"} do |f| %>
         <%= f.text_field :pid13, :id => "pid13_id" %>
         <%= f.text_field :sex, :id => "sex_id" %>
         <%= f.text_field :age, :id => "age_id" %>
