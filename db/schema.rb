@@ -11,6 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171004054259) do
+
+  create_table "deaths", force: true do |t|
+    t.string   "pid13"
+    t.string   "sex"
+    t.integer  "age"
+    t.date     "d_date"
+    t.string   "d_cod"
+    t.string   "cod"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

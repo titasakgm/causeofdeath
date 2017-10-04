@@ -21,7 +21,32 @@ var dbt,dbt0,dbt1,dbt2,dm1,dm2,dmy,dmn,dmb;
 var acx,acx2,ac1_count;
 var as0,as1;
 
+var btn_save;
+
 $(document).ready(function(){
+  // Save button
+  btn_save = $('#btn_save');
+
+  btn_save.unbind('click').bind('click', function(){
+    msg = cod;
+    pid13_id = $("#pid13").val();
+    sex_id = $("[name='sex']").val();
+    age_id = $("#age").val();
+    d_date_id = $("#dead").val();
+    d_cod_id = codt.text();
+    cod_id = cod;
+
+    $('#pid13_id').val(pid13_id);
+    $('#sex_id').val(sex_id);
+    $('#age_id').val(age_id);
+    $('#d_date_id').val(d_date_id);
+    $('#d_cod_id').val(d_cod_id);
+    $('#cod_id').val(cod_id);
+    $('#id_cod').submit();
+
+    return false;
+  });
+
   // Final Cause of Death (cod)
   cod = "";
   causeofdeath = "";
