@@ -28,8 +28,8 @@ class DeathsController < ApplicationController
 
     respond_to do |format|
       if @death.save
-        format.html { redirect_to @death, notice: 'Death was successfully created.' }
-        format.json { render action: 'show', status: :created, location: root_path }
+        format.html { redirect_to root_path, notice: 'Death was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @death }
       else
         format.html { render action: 'new' }
         format.json { render json: @death.errors, status: :unprocessable_entity }
