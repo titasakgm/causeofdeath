@@ -1,4 +1,8 @@
 Dev1::Application.routes.draw do
+
+  get '/cod' => 'guides#index'
+  get '/deaths' => 'guides#index'
+
   resources :deaths
 
   get "guides/index"

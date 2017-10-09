@@ -5,7 +5,7 @@ class DeathsController < ApplicationController
   # GET /deaths.json
   def index
     #@deaths = Death.all
-    redirect_to "/cod"
+    redirect_to root_url
   end
 
   # GET /deaths/1
